@@ -22,7 +22,7 @@ jobs:
           # Set the S3 bucket name and directory where you want to store backups
           S3_BUCKET_NAME="neith-customer-site-backup"
           BACKUP_DIR="backup-$(date +\%Y\%m\%d\%H\%M\%S)"
-          aws s3 cp . s3://${S3_BUCKET_NAME}/${BACKUP_DIR} --recursive
+          aws s3 cp . s3://${S3_BUCKET_NAME}/${BACKUP_DIR} --recursive --region us-east-1
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ORG_AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.ORG_AWS_SECRET_ACCESS_KEY }}
