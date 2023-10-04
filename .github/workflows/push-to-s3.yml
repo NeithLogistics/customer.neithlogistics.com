@@ -3,7 +3,9 @@ name: Backup to S3
 on:
   push:
     branches:
-      - main 
+      - main
+  pull_request:
+    types: [opened, reopened, review_requested]
 
 jobs:
   backup_to_s3:
